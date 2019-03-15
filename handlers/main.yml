@@ -1,0 +1,18 @@
+---
+- name: nginx start
+  service: name=nginx state=started
+
+- name: Install php modules 7.0/7.1/7.2/7.3
+  service: name=php70-php-fpm state=started
+  
+- name: Install php modules 7.0/7.1/7.2/7.3
+  service: name=php71-php-fpm state=started
+
+- name: Install php modules 7.0/7.1/7.2/7.3
+  service: name=php72-php-fpm state=started
+
+- name: Install php modules 7.0/7.1/7.2/7.3
+  service: name=php73-php-fpm state=started
+
+- name: mariadb start
+  service: name=mariadb state=started

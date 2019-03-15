@@ -1,0 +1,68 @@
+---
+  - name: Add REMI PHP 7.X repository
+    yum_repository:
+      name: epel
+      description: Install REMI YUM repo
+      baseurl: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+  - selinux:
+      state: disabled
+
+  - name: Install php-fpm 7.0/7.1/7.2/7.3
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+        - nginx
+        - php70-php-fpm
+        - php71-php-fpm
+        - php72-php-fpm
+        - php73-php-fpm
+
+  - name: adding port for php 7.0/7.1/7.2/7.3
+    shell: sed -i 's/:9000/:9001/' /etc/opt/remi/php70/php-fpm.d/www.conf
+
+  - name: adding port for php7.1
+    shell: sed -i 's/:9000/:9001/' /etc/opt/remi/php71/php-fpm.d/www.conf
+
+  - name: adding port for php7.2
+    shell: sed -i 's/:9000/:9002/' /etc/opt/remi/php72/php-fpm.d/www.conf
+
+  - name: adding port for php7.3
+    shell: sed -i 's/:9000/:9003/' /etc/opt/remi/php73/php-fpm.d/www.conf
+ 
+    name: replace line for PHP-FPM config
+  - replace:
+      path: /etc/opt/remi/php71/php-fpm.d/www.conf
+      regexp: 'apache'
+      replace: 'nginx'
+
+  - name: Adding nginx as user and group to PHP-FPM config files
+    replace:
+      path: "{{ item.path }}"
+      regexp: "{{ item.regexp1 }}"
+      replace: "{{ item.replace }}"
+    with_items:
+      - { path: '/etc/opt/remi/php70/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
+      - { path: '/etc/opt/remi/php71/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
+      - { path: '/etc/opt/remi/php72/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
+      - { path: '/etc/opt/remi/php73/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
+    notify: Install php modules 7.0/7.1/7.2/7.3
+    
+  - name: copy the nginx default
+      template:
+        src: /etc/ansible/roles/ansible-multi-php-c7/files/default.j2
+        dest: /etc/nginx/conf.d/default.conf
+    become: yes
+
+  - name: copy the nginx.conf
+    copy:
+      src: /etc/ansible/roles/ansible-multi-php-c7/files/nginx.conf
+      dest: /etc/nginx/nginx.conf
+    become: yes
+
+  - name: copying t.php file for phpinfo
+    copy:
+      src: /etc/ansible/roles/ansible-multi-php-c7/files/t.php
+      dest: /var/www/html/
+    become: yes
