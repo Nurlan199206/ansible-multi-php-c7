@@ -1,10 +1,8 @@
 ---
   - name: Add REMI PHP 7.X repository
-    yum_repository:
-      name: epel
-      description: Install REMI YUM repo
-      baseurl: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-
+    yum:
+      name: "http://rpms.remirepo.net/enterprise/remi-release-7.rpm"
+      
   - selinux:
       state: disabled
 
