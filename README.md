@@ -17,8 +17,6 @@ run command:
 
 ``` yum install git ansible mc python2-PyMySQL -y ```
 
-``` git clone https://github.com/Nurlan199206/ansible-nginx-php-fpm-centos6 /etc/ansible/roles/ansible-nginx-php-fpm-centos6 ```
-
 and
 
 ``` ansible-playbook --connection=local -s /etc/ansible/roles/ansible-multi-php-c7/nginx.yml ```
