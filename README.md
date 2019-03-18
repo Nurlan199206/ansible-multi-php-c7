@@ -24,10 +24,14 @@ and
 
 for successfully run playbook, dont forget add in ```/etc/ansible/ansible.cfg after [defaults]```
 
+```invalid_task_attribute_failed=False```
+
 
 for switching PHP versions, change line in ```/etc/nginx/conf.d/default.conf```
 
 ``` fastcgi_pass   127.0.0.1:9000; ```
 
+or create new virtual host
 
-invalid_task_attribute_failed=False
+
+
