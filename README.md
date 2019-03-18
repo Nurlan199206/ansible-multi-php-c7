@@ -24,10 +24,10 @@ and
 ``` ansible-playbook --connection=local -s /etc/ansible/roles/ansible-multi-php-c7/nginx.yml ```
 
 
-for successfully run playbook, dont forget add in /etc/ansible/ansible.cfg after [defaults]
+for successfully run playbook, dont forget add in ```/etc/ansible/ansible.cfg after [defaults]```
 
 
-for switching PHP versions, change line in /etc/nginx/conf.d/default.conf 
+for switching PHP versions, change line in ```/etc/nginx/conf.d/default.conf```
 
 ``` fastcgi_pass   127.0.0.1:9000; ```
 
