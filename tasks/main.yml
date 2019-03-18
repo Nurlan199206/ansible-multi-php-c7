@@ -57,6 +57,12 @@
       dest: /etc/nginx/nginx.conf
     become: yes
 
+  - name: copy the nginx SSL config 
+    copy:
+      src: /etc/ansible/roles/ansible-multi-php-c7/files/ssl.conf
+      dest: /etc/nginx/conf.d/ssl.conf
+    become: yes
+
   - name: copying 1.php file for phpinfo
     copy:
       src: /etc/ansible/roles/ansible-multi-php-c7/files/1.php
