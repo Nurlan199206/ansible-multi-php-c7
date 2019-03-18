@@ -1,8 +1,12 @@
 ---
+  - name: Add EPEL repository
+    yum:
+      name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+
   - name: Add REMI PHP 7.X repository
     yum:
       name: "http://rpms.remirepo.net/enterprise/remi-release-7.rpm"
-      
+
   - selinux:
       state: disabled
 
