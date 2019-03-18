@@ -33,7 +33,7 @@
   - name: adding port 9001 for php7.1
     shell: sed -i 's/:9000/:9001/' /etc/opt/remi/php71/php-fpm.d/www.conf
 
-  - name: adding port port 9002 for php7.2
+  - name: adding port 9002 for php7.2
     shell: sed -i 's/:9000/:9002/' /etc/opt/remi/php72/php-fpm.d/www.conf
 
   - name: adding port 9003 for php7.3
