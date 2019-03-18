@@ -27,16 +27,16 @@
        state: latest
     notify: mariadb start
 
-  - name: adding port for php 7.0/7.1/7.2/7.3
+  - name: adding port 9000 for php 7.0
     shell: sed -i 's/:9000/:9000/' /etc/opt/remi/php70/php-fpm.d/www.conf
 
-  - name: adding port for php7.1
+  - name: adding port 9001 for php7.1
     shell: sed -i 's/:9000/:9001/' /etc/opt/remi/php71/php-fpm.d/www.conf
 
-  - name: adding port for php7.2
+  - name: adding port port 9002 for php7.2
     shell: sed -i 's/:9000/:9002/' /etc/opt/remi/php72/php-fpm.d/www.conf
 
-  - name: adding port for php7.3
+  - name: adding port 9003 for php7.3
     shell: sed -i 's/:9000/:9003/' /etc/opt/remi/php73/php-fpm.d/www.conf
 
   - name: Adding nginx as user and group to PHP-FPM config files
