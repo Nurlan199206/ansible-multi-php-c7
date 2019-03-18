@@ -43,7 +43,6 @@
       - { path: '/etc/opt/remi/php71/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
       - { path: '/etc/opt/remi/php72/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
       - { path: '/etc/opt/remi/php73/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
-    notify: Install php modules 7.0/7.1/7.2/7.3
 
   - name: copy the nginx default
     template:
@@ -69,6 +68,9 @@
       dest: /var/www/html/
     become: yes
     notify: nginx start
+
+  - name: start php7.0 FPM
+    service: name=php70-php-fpm state=started
 
   - name: start php7.1 FPM
     service: name=php71-php-fpm state=started
