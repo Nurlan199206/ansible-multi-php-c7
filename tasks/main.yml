@@ -22,7 +22,7 @@
         - php73-php-fpm
 
   - name: adding port for php 7.0/7.1/7.2/7.3
-    shell: sed -i 's/:9000/:9001/' /etc/opt/remi/php70/php-fpm.d/www.conf
+    shell: sed -i 's/:9000/:9000/' /etc/opt/remi/php70/php-fpm.d/www.conf
 
   - name: adding port for php7.1
     shell: sed -i 's/:9000/:9001/' /etc/opt/remi/php71/php-fpm.d/www.conf
@@ -32,12 +32,6 @@
 
   - name: adding port for php7.3
     shell: sed -i 's/:9000/:9003/' /etc/opt/remi/php73/php-fpm.d/www.conf
- 
-    name: replace line for PHP-FPM config
-  - replace:
-      path: /etc/opt/remi/php71/php-fpm.d/www.conf
-      regexp: 'apache'
-      replace: 'nginx'
 
   - name: Adding nginx as user and group to PHP-FPM config files
     replace:
@@ -50,7 +44,7 @@
       - { path: '/etc/opt/remi/php72/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
       - { path: '/etc/opt/remi/php73/php-fpm.d/www.conf', regexp1: 'apache', replace: 'nginx'}
     notify: Install php modules 7.0/7.1/7.2/7.3
-    
+
   - name: copy the nginx default
     template:
         src: /etc/ansible/roles/ansible-multi-php-c7/files/default.j2
