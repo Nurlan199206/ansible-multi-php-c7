@@ -21,6 +21,12 @@
         - php72-php-fpm
         - php73-php-fpm
 
+  - name: install "MariaDB" package
+    yum:
+       name: mariadb-server
+       state: latest
+    notify: mariadb start
+
   - name: adding port for php 7.0/7.1/7.2/7.3
     shell: sed -i 's/:9000/:9000/' /etc/opt/remi/php70/php-fpm.d/www.conf
 
