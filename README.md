@@ -6,12 +6,11 @@ Ansible 2.7.5
 
 Centos 6/7
 
-php 5.4
+php 7.0/7.1/7.2/7.3
 
 nginx 1.14
 
 MariaDB Ver 15.1 Distrib 5.5.60
-
 
 
 run command: 
