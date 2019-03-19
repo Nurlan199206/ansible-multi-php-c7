@@ -16,6 +16,7 @@
     vars:
       packages:
         - nginx
+        - certbot
         - php70-php-fpm
         - php71-php-fpm
         - php72-php-fpm
