@@ -17,6 +17,7 @@
       packages:
         - nginx
         - certbot
+        - certbot-nginx
         - php70-php-fpm
         - php71-php-fpm
         - php72-php-fpm
