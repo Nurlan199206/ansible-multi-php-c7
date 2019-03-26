@@ -88,3 +88,33 @@
 
   - name: start php7.3 FPM
     service: name=php73-php-fpm state=started
+
+  - name: add to autostart nginx
+    systemd:
+      name: nginx
+      enabled: yes
+      masked: no
+
+  - name: add to autostart PHP70-FPM
+    systemd:
+      name: php70-php-fpm
+      enabled: yes
+      masked: no
+
+  - name: add to autostart PHP71-FPM
+    systemd:
+      name: php71-php-fpm
+      enabled: yes
+      masked: no 
+
+  - name: add to autostart PHP72-FPM
+    systemd:
+      name: php72-php-fpm
+      enabled: yes
+      masked: no
+
+  - name: add to autostart PHP73-FPM
+    systemd:
+      name: php73-php-fpm
+      enabled: yes
+      masked: no 
