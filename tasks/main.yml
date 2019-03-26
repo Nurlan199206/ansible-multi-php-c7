@@ -117,4 +117,10 @@
     systemd:
       name: php73-php-fpm
       enabled: yes
-      masked: no 
+      masked: no
+
+  - name: add to autostart MariaDB
+    systemd:
+      name: mariadb
+      enabled: yes
+      masked: no
