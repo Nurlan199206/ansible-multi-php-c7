@@ -13,7 +13,7 @@ nginx 1.14
 MariaDB Ver 15.1 Distrib 5.5.60
 
 
-run command: 
+run setup.sh or: 
 
 ``` yum install git ansible mc python2-PyMySQL -y ```
 
