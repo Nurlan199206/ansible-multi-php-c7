@@ -29,7 +29,7 @@ for successfully run playbook, dont forget add in ```/etc/ansible/ansible.cfg af
 
 for switching PHP versions, change line in ```/etc/nginx/conf.d/default.conf```
 
-``` fastcgi_pass   127.0.0.1:9000; ```
+``` fastcgi_pass   127.0.0.1:9000; ``` to ```127.0.0.1:9001``` ```127.0.0.1:9002``` etc...
 
 or create new virtual host
 
