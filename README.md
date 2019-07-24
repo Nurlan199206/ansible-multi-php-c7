@@ -21,6 +21,9 @@ and
 
 ``` ansible-playbook --connection=local -s /etc/ansible/roles/ansible-multi-php-c7/nginx.yml ```
 
+for ansible 2.8.x versions
+``` ansible-playbook --connection=local /etc/ansible/roles/ansible-multi-php-c7/nginx.yml ```
+
 
 for successfully run playbook, dont forget add in ```/etc/ansible/ansible.cfg after [defaults]```
 
