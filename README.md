@@ -2,7 +2,7 @@
 
 Software version.
 
-Ansible 2.7.5
+Ansible 2.7.5/2.8.2
 
 Centos 6/7
 
